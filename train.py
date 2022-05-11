@@ -1,3 +1,5 @@
+# TODO Parameter 초기화부분 확인
+
 import torch
 import torch.nn as nn
 import torchvision
@@ -20,7 +22,7 @@ testset = torchvision.datasets.STL10(root='./data', split='test', download=True,
 testloader = torch.utils.data.DataLoader(testset, batch_size=32, shuffle=False)
 
 def init_weights(m):
-    if type(m) not in [nn.ReLU, nn.LocalResponseNorm, nn.MaxPool2d, nn.Sequential, nn.Dropout, AlexNet, AlexNetMulti]:
+    if type(m) not in [nn.ReLU, nn.LocalResponseNorm, nn.MaxPool2d, nn.Sequential, nn.Dropout, AlexNet]:
         nn.init.normal_(m.weight, 0, 0.01)
         m.bias.data.fill_(1)
 
